@@ -1,0 +1,111 @@
+<nav class="navbar navbar-light" style="background-color: #e3f2fd">
+  <div class="container-fluid">
+    <img src="../../assets/shopping.png" width="80px" height="50PX" />
+
+    <a class="nav-link active">Home</a>
+  </div>
+</nav>
+<div class="dropdown" style="text-align: center">
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    select a role
+  </button>
+
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" (click)="selectRole('admin')">Admin</a></li>
+
+    <li>
+      <a class="dropdown-item" (click)="selectRole('moderator')">Moderator</a>
+    </li>
+    <li><a class="dropdown-item" (click)="selectRole('user')">User</a></li>
+  </ul>
+</div>
+<br />
+<div class="D">
+  <input type="text" [(ngModel)]="filterByName" (ngModelChange)="filter()" placeholder="Name" class="form-control" id="Input" />
+
+</div>
+<div class="container my-4" style="width: 80vw !important">
+  <table class="table table-striped table-primary">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Images</th>
+        <th>Rating</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <script>
+      
+      </script>
+      <tr *ngFor="let user of filteredArray">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>
+          <img
+            class="img img-fluid rounded"
+            [src]="user.images"
+            style="height: 30px; width: 50px"
+          />
+        </td>
+        <td>{{ user.rating }}</td>
+        <td>{{ user.description }}</td>
+        <td>{{ user.price }}</td>
+        <td>{{ user.discount }}</td>
+        <td style="white-space: nowrap">
+          <button
+            class="btn btn-outline-primary"
+            [disabled]="selectedRole === 'user'"
+            (click)="edit(user)"
+          >
+            Edit
+          </button>
+          <button
+            class="btn btn-outline-secondary mx-3"
+            [disabled]="selectedRole === 'user'"
+            (click)="view(user)"
+          >
+            View
+          </button>
+          <button
+            class="btn btn-outline-danger"
+            [disabled]="selectedRole === 'user' || selectedRole === 'moderator'"
+            (click)="delete(user)"
+          >
+            Delete
+          </button>
+          <!-- <button
+            [disabled]="!(user.rating=== 'Admin')"
+            class="btn btn-outline-success mx-2"
+            (click)="addUser(user)"
+          >
+            Add
+          </button>
+          <button
+            [disabled]="user.role === 'User'"
+            class="btn btn-outline-warning mx-2"
+            (click)="editUser(user)"
+          >
+            Edit
+          </button>
+          <button
+            [disabled]="user.role === 'User'"
+            class="btn btn-outline-danger mx-2"
+            (click)="deleteUser(user)"
+          >
+            Delete
+          </button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
