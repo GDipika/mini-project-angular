@@ -1,7 +1,6 @@
 <nav class="navbar navbar-light" style="background-color: #e3f2fd">
   <div class="container-fluid">
     <img src="../../assets/shopping.png" width="80px" height="50PX" />
-
     <a class="nav-link active">Home</a>
   </div>
 </nav>
@@ -17,7 +16,6 @@
 
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" (click)="selectRole('admin')">Admin</a></li>
-
     <li>
       <a class="dropdown-item" (click)="selectRole('moderator')">Moderator</a>
     </li>
@@ -26,8 +24,14 @@
 </div>
 <br />
 <div class="D">
-  <input type="text" [(ngModel)]="filterByName" (ngModelChange)="filter()" placeholder="Name" class="form-control" id="Input" />
-
+  <input
+    type="text"
+    [(ngModel)]="filterByName"
+    (ngModelChange)="filter()"
+    placeholder="Name"
+    class="form-control"
+    id="Input"
+  />
 </div>
 <div class="container my-4" style="width: 80vw !important">
   <table class="table table-striped table-primary">
@@ -44,9 +48,7 @@
       </tr>
     </thead>
     <tbody>
-      <script>
-      
-      </script>
+      <script></script>
       <tr *ngFor="let user of filteredArray">
         <td>{{ user.id }}</td>
         <td>{{ user.name }}</td>
